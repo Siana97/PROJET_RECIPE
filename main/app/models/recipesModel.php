@@ -2,7 +2,7 @@
 
 namespace App\Models\RecipesModel;
 
-function findOneByRating(\PDO $connexion): array
+function findOneByRating(\PDO $connexion)
 {
     $sql = "SELECT d.*,        
                     ROUND(AVG(r.value), 1) AS average_rating,
@@ -15,7 +15,7 @@ function findOneByRating(\PDO $connexion): array
             GROUP BY d.id
             ORDER BY AVG(r.value) DESC;";
     $rs = $connexion->query($sql);
-    return $rs->fetchAll(\PDO::FETCH_ASSOC);
+    return $rs->fetch(\PDO::FETCH_ASSOC);
 }
 
 
