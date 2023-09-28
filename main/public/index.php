@@ -8,7 +8,7 @@
 require_once '../core/init.php';
 
 // 2. Charger le routeur principal
-require_once '../app/routeurs/index.php';
+require_once '../app/routeurs/web.php';
 
 // 3. Charger le template
 require_once '../app/views/templates/index.php';
