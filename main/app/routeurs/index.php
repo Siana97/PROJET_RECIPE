@@ -7,6 +7,11 @@
 if (isset($_GET['recipes'])) :
     include_once '../app/routeurs/recipes.php';
 
+ // USERS: ROUTER DES USERS
+// PATTERN: ?users=xxx
+elseif (isset($_GET['users'])) :
+    include_once '../app/routeurs/users.php';
+
 // PATTERN: / 
 // CTRL: pagesController
 // ACTION: home

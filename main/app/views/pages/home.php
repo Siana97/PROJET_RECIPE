@@ -26,6 +26,6 @@
     >
         Mes dernières recettes
     </h4>
-    <?php include '../app/views/recipes/recipesByUser.php'; ?>
+    <?php include '../app/views/recipes/recipesByUserId.php'; ?>
     </div>
 </section>

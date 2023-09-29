@@ -10,7 +10,7 @@ function homeAction(\PDO $connexion)
     
 
     include_once '../app/models/usersModel.php';
-    $topUser = \App\Models\usersModel\findOneUserWithMostRecipes($connexion);
+    $topUser = \App\Models\usersModel\findOneWithMostRecipes($connexion);
 
     global $title, $content;
     $title = "Popular Recipes - Popular Chief";

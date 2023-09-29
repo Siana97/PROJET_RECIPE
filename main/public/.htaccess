@@ -16,6 +16,16 @@ RewriteRule ^recipes$ index.php?recipes=index [L]
 # TARGET: ?recipes=show&id=x
 RewriteRule ^recipes\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?recipes=show&id=$1 [L]
 
+# ROUTE LISTE DES USERS
+# PATTERN: /users
+# TARGET: ?users=index
+RewriteRule ^users$ index.php?users=index [L]
+
+# ROUTE DÉTAILS D'UN USER
+# PATTERN: /users/{id}/{slug}
+# TARGET: ?users=show&id=x
+RewriteRule ^users\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?users=show&id=$1 [L]
+
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
 RewriteRule ^(.*)$ index.php [L]

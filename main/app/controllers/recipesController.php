@@ -19,10 +19,10 @@ function indexAction(\PDO $connexion)
 function showAction(\PDO $connexion, int $id)
 {
     include_once '../app/models/recipesModel.php';
-    $recipeById = RecipesModel\findOneById($connexion, $id);
+    $recipe = RecipesModel\findOneById($connexion, $id);
 
     global $title, $content;
-    $title = $recipeById['name'];
+    $title = $recipe['name'];
     ob_start();
     include '../app/views/recipes/show.php';
     $content = ob_get_clean();

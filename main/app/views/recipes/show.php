@@ -10,34 +10,34 @@
     <!-- Recipe Image -->
     <img
     class="w-full h-96 object-cover rounded-t-lg"
-    src="<?= $recipeById['picture'] ;?>"
-    alt="<?= $recipeById['name'] ;?>"
+    src="<?= $recipe['picture'] ;?>"
+    alt="<?= $recipe['name'] ;?>"
     />
 
     <!-- Recipe Info -->
     <div class="p-4">
     <h1 class="text-3xl font-bold mb-4">
-        <?= $recipeById['name'] ;?>
+        <?= $recipe['name'] ;?>
     </h1>
     <div class="flex items-center mb-4">
         <span class="text-yellow-500 mr-1"
         ><i class="fas fa-star"></i
         ></span>
         <span>
-            <?= $recipeById['average_rating'] ;?>
+            <?= $recipe['average_rating'] ;?>
         </span>
         <span class="ml-4 text-gray-700"><i class="fas fa-clock"></i>
-            <?= $recipeById['prep_time'] ;?>
+            <?= $recipe['prep_time'] ;?>
         </span>
     </div>
     <p class="text-gray-700 mb-4">
-        <?= $recipeById['description'] ;?>
+        <?= $recipe['description'] ;?>
     </p>
     <div class="flex items-center mb-4">
-        <span class="text-gray-700 mr-2">Par <?= $recipeById['user_name'] ;?>
+        <span class="text-gray-700 mr-2">Par <?= $recipe['user_name'] ;?>
         </span>
         <span class="text-gray-500"
-        ><i class="fas fa-comment"></i> <?= $recipeById['comment_count'] ;?> commentaires</span>
+        ><i class="fas fa-comment"></i> <?= $recipe['comment_count'] ;?> commentaires</span>
     </div>
     </div>
 
@@ -45,7 +45,7 @@
     <div class="p-4 border-t">
     <h2 class="text-2xl font-bold mb-4">Ingrédients</h2>
     <ul>
-        <?php foreach (explode(',', $recipeById['ingredients']) as $ingredient) : ?>
+        <?php foreach (explode(',', $recipe['ingredients']) as $ingredient) : ?>
             <li><?= trim($ingredient); ?></li>
         <?php endforeach; ?>
     </ul>
