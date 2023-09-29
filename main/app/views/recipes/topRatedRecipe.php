@@ -21,15 +21,14 @@
         </p>
         <div class="flex items-center mb-4">
             <span class="text-gray-400 mr-2">
-                <?= $topRatedRecipe['author_name'];?> 
+                <?= $topRatedRecipe['user_name'];?> 
             </span>
             <span class="text-gray-500"><i class="fas fa-comment"></i>
                 <?= $topRatedRecipe['comment_count'] ;?>
             </span>
         </div>
-        <!-- books/ < ?php echo $book['id']; ?>/< ?php echo Core\Tools\slugify($book['title']); ?> -->
         <a
-            href="recipe.html"
+            href="recipes/<?= $recipe['id']; ?>/<?=slugify($recipe['name']); ?>"
             class="inline-block bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white"
         >
             Voir la recette

@@ -6,7 +6,11 @@ function homeAction(\PDO $connexion)
 {
     include_once '../app/models/recipesModel.php';
     $recipes = \App\Models\recipesModel\findAllPopulars($connexion);
-    $topRatedRecipe = \App\Models\recipesModel\findOneByRating($connexion);
+    $topRatedRecipe = \App\Models\recipesModel\findOneRandomRecipe($connexion);
+    
+
+    include_once '../app/models/usersModel.php';
+    $topUser = \App\Models\usersModel\findOneUserWithMostRecipes($connexion);
 
     global $title, $content;
     $title = "Popular Recipes - Popular Chief";
