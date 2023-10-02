@@ -5,12 +5,12 @@
 // RECIPES: ROUTER DES RECIPES
 // PATTERN: ?recipes=xxx
 if (isset($_GET['recipes'])) :
-    include_once '../app/routeurs/recipes.php';
+    include_once '../app/routers/recipes.php';
 
  // USERS: ROUTER DES USERS
 // PATTERN: ?users=xxx
 elseif (isset($_GET['users'])) :
-    include_once '../app/routeurs/users.php';
+    include_once '../app/routers/users.php';
 
 // PATTERN: / 
 // CTRL: pagesController
