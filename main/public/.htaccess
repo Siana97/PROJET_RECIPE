@@ -8,32 +8,32 @@ RewriteEngine on
 
 # ROUTE FORMULAIRE DE CONNEXION
 # PATTERN: /users/login/form
-# TARGET: ?users=loginForm
+# TARGET: index.php?users=loginForm
 RewriteRule ^users\/login\/form$ index.php?users=loginForm [L]
 
 # ROUTE DE CONNEXION
 # PATTERN: /users/login
-# TARGET: ?users=login
+# TARGET: index.php?users=login
 RewriteRule ^users\/login$ index.php?users=login [L]
 
 # ROUTE LISTE DES RECIPES
 # PATTERN: /recipes
-# TARGET: ?recipes=index
+# TARGET: index.php?recipes=index
 RewriteRule ^recipes$ index.php?recipes=index [L]
 
 # ROUTE DÉTAILS D'UNE RECIPE
 # PATTERN: /recipes/{id}/{slug}
-# TARGET: ?recipes=show&id=x
+# TARGET: index.php?recipes=show&id=x
 RewriteRule ^recipes\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?recipes=show&id=$1 [L]
 
 # ROUTE LISTE DES USERS
 # PATTERN: /users
-# TARGET: ?users=index
+# TARGET: index.php?users=index
 RewriteRule ^users$ index.php?users=index [L]
 
 # ROUTE DÉTAILS D'UN USER
 # PATTERN: /users/{id}/{slug}
-# TARGET: ?users=show&id=x
+# TARGET: index.php?users=show&id=x
 RewriteRule ^users\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?users=show&id=$1 [L]
 
 # --------------------------------------------------
