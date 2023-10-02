@@ -6,6 +6,16 @@ RewriteEngine on
 # ROUTES
 #--------------------------------------------------
 
+# ROUTE FORMULAIRE DE CONNEXION
+# PATTERN: /users/login/form
+# TARGET: ?users=loginForm
+RewriteRule ^users\/login\/form$ index.php?users=loginForm [L]
+
+# ROUTE DE CONNEXION
+# PATTERN: /users/login
+# TARGET: ?users=login
+RewriteRule ^users\/login$ index.php?users=login [L]
+
 # ROUTE LISTE DES RECIPES
 # PATTERN: /recipes
 # TARGET: ?recipes=index

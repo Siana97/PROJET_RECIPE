@@ -8,7 +8,7 @@
 ?>
 
 <!-- Hero Recipe Card -->
-<?php include '../app/views/recipes/topRatedRecipe.php'; ?>
+<?php include '../app/views/recipes/recipeRandom.php'; ?>
 
 <section>
     <h2 class="text-2xl font-bold mb-4">Recettes populaires</h2>

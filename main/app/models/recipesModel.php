@@ -2,7 +2,7 @@
 
 namespace App\Models\RecipesModel;
 
-function findOneRandomRecipe(\PDO $connexion)
+function findOneRecipeRandom(\PDO $connexion)
 {
     $sql = "SELECT d.*,        
                     ROUND(AVG(r.value), 1) AS average_rating,
@@ -28,7 +28,8 @@ function findAll(\PDO $connexion): array
             FROM dishes d
             LEFT JOIN ratings r ON d.id = r.dish_id
             GROUP BY d.id
-            ORDER BY d.created_at DESC;";
+            ORDER BY d.created_at DESC
+            LIMIT 9;";
     $rs = $connexion->query($sql);
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
@@ -50,26 +51,15 @@ function findAllPopulars(\PDO $connexion): array
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
 
-function findAllByUser(\PDO $connexion): array
+function findAllByUserId(\PDO $connexion, int $id = 1): array
 {
-    $sql = "SELECT d.*,        
-                    ROUND(AVG(r.value), 1) AS average_rating,
-                    u.name AS user_name,
-                    COUNT(c.id) AS comment_count
+    $sql = "SELECT d.*
             FROM dishes d
-            LEFT JOIN ratings r ON d.id = r.dish_id
-            LEFT JOIN users u ON d.user_id = u.id
-            LEFT JOIN comments c ON d.id = c.dish_id
-            WHERE d.user_id = (
-                                SELECT user_id
-                                FROM dishes
-                                GROUP BY user_id
-                                ORDER BY COUNT(id) DESC
-                                LIMIT 1
-                                )
-            ORDER BY d.created_at DESC
-            LIMIT 3;";
-    $rs = $connexion->query($sql);
+            WHERE d.user_id = :id";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    $rs->execute();
+    
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
 

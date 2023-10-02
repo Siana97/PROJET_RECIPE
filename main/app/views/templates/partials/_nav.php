@@ -35,11 +35,13 @@
               </button>
             </div>
             <div class="hidden md:flex items-center space-x-4">
-              <input
-                type="text"
-                placeholder="Rechercher une recette..."
-                class="p-2 rounded-md"
-              />
+              <form action="search" method="get">
+                <input
+                  type="text"
+                  placeholder="Rechercher une recette..."
+                  class="p-2 rounded-md"
+                />
+              </form>
               <a
                 class="text-white hover:text-yellow-500 px-3 py-2"
                 href="recipes"
@@ -50,6 +52,11 @@
                 href="users"
                 >Chefs</a
               >
+              <a
+                class="text-white hover:text-yellow-500 px-3 py-2"
+                href="users/login/form"
+                >Connexion</a
+              >
             </div>
           </div>
         </div>
@@ -59,11 +66,14 @@
             placeholder="Rechercher une recette..."
             class="p-2 w-full"
           />
-          <a class="block text-white hover:text-yellow-500 px-3 py-2" href="#"
-            >Recettes</a
-          >
-          <a class="block text-white hover:text-yellow-500 px-3 py-2" href="#"
-            >Chefs</a
-          >
+          <a class="block text-white hover:text-yellow-500 px-3 py-2" href="recipes"
+            >Recettes
+          </a>
+          <a class="block text-white hover:text-yellow-500 px-3 py-2" href="users"
+            >Chefs
+          </a>
+          <a class="block text-white hover:text-yellow-500 px-3 py-2" href="connexion">
+            Connexion
+          </a>
         </div>
       </nav>

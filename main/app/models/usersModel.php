@@ -4,7 +4,8 @@ namespace App\Models\UsersModel;
 
 function findOneWithMostRecipes(\PDO $connexion)
 {
-    $sql = "SELECT u.name,
+    $sql = "SELECT u.id,
+                   u.name,
                    DATE(u.created_at) AS registration_date,
                    COUNT(d.id) AS recipe_count,
                    u.picture
@@ -36,7 +37,20 @@ function findAll(\PDO $connexion): array
                     u.picture
             FROM users u
             WHERE u.id <> 1
-            ORDER BY u.created_at DESC;";
+            ORDER BY u.created_at DESC
+            LIMIT 9;";
     $rs = $connexion->query($sql);
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
+}
+
+function findOneByPseudo(\PDO $connexion, array $data)
+{
+    $sql = "SELECT *
+            FROM users
+            WHERE pseudo = :pseudo;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':pseudo', $data['pseudo'], \PDO::PARAM_STR);
+    $rs->execute();
+
+    return $rs->fetch(\PDO::FETCH_ASSOC);
 }
