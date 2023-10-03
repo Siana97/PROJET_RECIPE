@@ -17,20 +17,20 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">GESTION <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">GESTION DES RECETTES</li>
-                        <li><a href="#">Liste des recipes</a></li>
-                        <li><a href="#">Ajouter une recipe</a></li>
+                        <li><a href="recipes">Liste des recipes</a></li>
+                        <li><a href="recipes/add">Ajouter une recipe</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header">GESTION DES CATÉGORIES</li>
                         <li><a href="categories">Liste des catégories</a></li>
                         <li><a href="categories/add">Ajouter une catégorie</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header">GESTION DES INGREDIENTS</li>
-                        <li><a href="categories">Liste des ingredients</a></li>
-                        <li><a href="categories/add">Ajouter un ingrerdient</a></li>
+                        <li><a href="ingredients">Liste des ingredients</a></li>
+                        <li><a href="ingredients/add">Ajouter un ingrerdient</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header">GESTION DES USERS</li>
-                        <li><a href="#">Liste des users</a></li>
-                        <li><a href="#">Ajouter un user</a></li>
+                        <li><a href="users">Liste des users</a></li>
+                        <li><a href="users/add">Ajouter un user</a></li>
                         <li role="separator" class="divider"></li>
                     </ul>
                 </li>
