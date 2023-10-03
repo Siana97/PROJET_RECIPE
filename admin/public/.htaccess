@@ -1,0 +1,40 @@
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+# RewriteBase "/.../"
+
+#--------------------------------------------------
+# ROUTES
+#--------------------------------------------------
+# ROUTE DE LOGOUT
+# PATTERN: /users/logout
+# TARGET: ?users=logout
+RewriteRule ^users\/logout$ index.php?users=logout [L]
+
+# ROUTE DES CATEGORIES -------------
+
+# CATEGORIES.INDEX
+# PATTERN: /categories
+# TARGET: ?categories=index
+RewriteRule ^categories$ index.php?categories=index [L]
+
+# CATEGORIES.ADD
+# PATTERN: /categories/add
+# TARGET: ?categories=add
+RewriteRule ^categories\/add$ index.php?categories=add [L]
+
+# CATEGORIES.CREATE
+# PATTERN: /categories/create
+# TARGET: ?categories=create
+RewriteRule ^categories\/create$ index.php?categories=create [L]
+
+# CATEGORIES.DELETE
+# PATTERN: /categories/delete/x
+# TARGET: ?categories=delete&id=x
+RewriteRule ^categories\/delete\/([1-9][0-9]*)$ index.php?categories=delete&id=$1 [L]
+
+
+
+
+# --------------------------------------------------
+RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
+RewriteRule ^(.*)$ index.php [L]

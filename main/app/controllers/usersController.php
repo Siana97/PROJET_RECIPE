@@ -32,24 +32,24 @@ function showAction(\PDO $connexion, int $id)
     $content = ob_get_clean();
 }
 
-function loginFormAction(\PDO $connexion)
+function loginFormAction()
 {
-    
-        global $title, $content;
-        $title = "Connexion";
-        ob_start();
-        include '../app/views/users/loginForm.php';
-        $content = ob_get_clean();
+
+    global $title, $content;
+    $title = "Connexion";
+    ob_start();
+    include '../app/views/users/loginForm.php';
+    $content = ob_get_clean();
 }
-
-
 
 function loginAction(\PDO $connexion, $data)
 {
     include_once '../app/models/usersModel.php';
+    
     $user = UsersModel\findOneByPseudo($connexion, $data);
-
-    if ($user && password_verify($data['password'], $user['password'])) :
+    
+    if ($user) :
+        //&& password_verify($data['password'], $user['password']) => cyptage password
         // Je sais qu'iel peut entrer
         // Je lui crée une variable de session
         $_SESSION['user'] = $user;

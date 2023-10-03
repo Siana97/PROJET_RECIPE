@@ -1,0 +1,42 @@
+<?php 
+
+function truncate($text, $limit) {
+    // Divisez la description en mots
+    $words = explode(' ', $text);
+
+    // Sélectionnez les premiers $limit mots
+    $shortenedText = implode(' ', array_slice($words, 0, $limit));
+
+    // Ajoutez "..." à la fin si la description a été tronquée
+    if (count($words) > $limit) {
+        $shortenedText .= '...';
+    }
+
+    return $shortenedText;
+}
+
+function slugify($str, $delimiter = '-')
+{
+    // Étape 1 : Conversion des caractères spéciaux
+    $str = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+
+    // Étape 2 : Suppression des apostrophes
+    $str = str_replace("'", "", $str);
+
+    // Étape 3 : Remplacement des "&"
+    $str = str_replace("&", "and", $str);
+
+    // Étape 4 et 5 : Remplacement et suppression des caractères
+    $patterns = [
+        '/[^A-Za-z0-9-]+/',  // Caractères non alphanumériques
+        '/[\s-]+/'           // Espaces et tirets multiples
+    ];
+    foreach ($patterns as $pattern) {
+        $str = preg_replace($pattern, $delimiter, $str);
+    }
+
+    // Étape 6 : Suppression des espaces blancs et conversion en minuscules
+    $str = strtolower(trim($str, $delimiter));
+
+    return $str;
+}

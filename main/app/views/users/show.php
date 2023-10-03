@@ -3,7 +3,7 @@
     <section class="relative mb-6">
         <img
         class="w-full h-96 object-cover"
-        src="<?= $user['picture'] ;?>"
+        src="./../documents/pictures/user_<?= $user['id'] ;?>.jpeg"
         alt="User Profile Image de <?= $user['name'] ;?>"
         />
         <div

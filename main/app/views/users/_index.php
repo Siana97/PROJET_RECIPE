@@ -4,7 +4,7 @@
     class="bg-white rounded-lg overflow-hidden shadow-lg relative"
     >
     <img
-        src="<?= $user['picture'];?>"
+        src="./../documents/pictures/user_<?= $user['id'] ;?>.jpeg"
         alt="<?= $user['name'];?>"
         class="w-full h-48 object-cover"
     />

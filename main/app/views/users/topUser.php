@@ -2,7 +2,7 @@
 <div class="flex items-center mb-6">
 <!-- User Avatar -->
 <img
-    src="<?= $topUser['picture'];?>"
+    src="./../documents/pictures/user_<?= $topUser['id'] ;?>.jpeg"
     alt="<?= $topUser['name'];?>"
     class="w-24 h-24 rounded-full border-4 border-yellow-500 mr-4"
 />

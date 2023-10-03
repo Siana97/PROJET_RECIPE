@@ -1,6 +1,6 @@
 <?php
 /* 
-    ./main/public/index.php
+    ./admin/public/index.php
     DISPATCHER CENTRAL
 */
 

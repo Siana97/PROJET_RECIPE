@@ -2,15 +2,15 @@
 
  // ROUTEUR PRINCIPAL 
 
+// USERS: ROUTER DES USERS
+// PATTERN: ?users=xxx
+if (isset($_GET['users'])) :
+    include_once '../app/routers/users.php';
+
 // RECIPES: ROUTER DES RECIPES
 // PATTERN: ?recipes=xxx
-if (isset($_GET['recipes'])) :
+elseif (isset($_GET['recipes'])) :
     include_once '../app/routers/recipes.php';
-
- // USERS: ROUTER DES USERS
-// PATTERN: ?users=xxx
-elseif (isset($_GET['users'])) :
-    include_once '../app/routers/users.php';
 
 // PATTERN: / 
 // CTRL: pagesController

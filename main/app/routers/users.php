@@ -5,10 +5,6 @@ use App\Controllers\UsersController;
 include_once '../app/controllers/usersController.php';
 
 switch ($_GET['users']):
-    case 'show':
-        UsersController\showAction($connexion, $_GET['id']);
-        break;
-
     case 'loginForm':
         UsersController\loginFormAction($connexion);
         break;
@@ -18,6 +14,10 @@ switch ($_GET['users']):
             'pseudo' => $_POST['pseudo'],
             'password' => $_POST['password']
         ]);
+        break;
+        
+    case 'show':
+        UsersController\showAction($connexion, $_GET['id']);
         break;
 
     default:

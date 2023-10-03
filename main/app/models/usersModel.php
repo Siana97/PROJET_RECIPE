@@ -20,7 +20,7 @@ function findOneWithMostRecipes(\PDO $connexion)
 
 function findOneById(\PDO $connexion, int $id = 1)
 {
-    $sql = "SELECT u.name, u.biography, u.picture
+    $sql = "SELECT u.id, u.name, u.biography, u.picture
             FROM users u
             WHERE u.id = :id";
     
@@ -43,13 +43,15 @@ function findAll(\PDO $connexion): array
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
 
-function findOneByPseudo(\PDO $connexion, array $data)
+function findOneByPseudo(\PDO $connexion, $data)
 {
     $sql = "SELECT *
             FROM users
-            WHERE pseudo = :pseudo;";
+            WHERE pseudo = :pseudo 
+            AND password = :password;";
     $rs = $connexion->prepare($sql);
     $rs->bindValue(':pseudo', $data['pseudo'], \PDO::PARAM_STR);
+    $rs->bindValue(':password', $data['password'], \PDO::PARAM_STR);
     $rs->execute();
 
     return $rs->fetch(\PDO::FETCH_ASSOC);
