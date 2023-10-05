@@ -9,7 +9,13 @@ switch ($_GET['recipes']):
         RecipesController\addAction();
         break;
     case 'create':
-        RecipesController\createAction($connexion, $_POST);
+        RecipesController\createAction($connexion, [
+            'name' => $_POST['name'],
+            'description' => $_POST['description'],
+            'prep_time' => $_POST['prep_time'],
+            'portions' => $_POST['portions'],
+            'categories' => $_POST['categories']
+        ]);
         break;
     case 'delete':
         RecipesController\deleteAction($connexion, $_GET['id']);

@@ -26,13 +26,15 @@ function addAction()
     global $title, $content;
     $title = "Ajouter une recipe";
     ob_start();
-    include '../app/views/recipe/add.php';
+    include '../app/views/recipes/add.php';
     $content = ob_get_clean();
 }
 
 function createAction(\PDO $connexion, array $data)
 {
     $recipe = RecipesModel\insertOne($connexion, $data);
+    $categories = RecipesModel\findAllCategories($connexion);
+    
     header('location: ' . ADMIN_ROOT . 'recipes');
 }
 
@@ -42,5 +44,5 @@ function deleteAction(\PDO $connexion, int $id)
     $return = RecipesModel\deleteOne($connexion, $id);
 
     // Je me redirige vers la liste des recipes
-    header('location: ' . ROOT . 'recipes');
+    header('location: ' . ADMIN_ROOT . 'recipes');
 }

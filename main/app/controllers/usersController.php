@@ -23,7 +23,7 @@ function showAction(\PDO $connexion, int $id)
     $user = UsersModel\findOneById($connexion, $id);
 
     include_once '../app/models/recipesModel.php';
-    $recipes = RecipesModel\findAllByUserId($connexion);
+    $recipes = RecipesModel\findAllByUserId($connexion, $id);
 
     global $title, $content;
     $title = $user['name'];

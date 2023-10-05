@@ -54,6 +54,48 @@ RewriteRule ^categories\/create$ index.php?categories=create [L]
 # TARGET: ?categories=delete&id=x
 RewriteRule ^categories\/delete\/([1-9][0-9]*)$ index.php?categories=delete&id=$1 [L]
 
+# CATEGORIES.EDIT.FORM
+# PATTERN: /categories/edit/form/x
+# TARGET: ?categories=editForm&id=x
+RewriteRule ^categories\/edit\/form\/([1-9][0-9]*)$ index.php?categories=editForm&id=$1 [L]
+
+# CATEGORIES.EDIT.UPDATE
+# PATTERN: /categories/edit/x
+# TARGET: ?categories=edit&id=x
+RewriteRule ^categories\/edit\/([1-9][0-9]*)$ index.php?categories=edit&id=$1 [L]
+
+# ROUTE DES INGREDIENTS -------------
+
+# INGREDIENTS.INDEX
+# PATTERN: /ingredients
+# TARGET: ?ingredients=index
+RewriteRule ^ingredients$ index.php?ingredients=index [L]
+
+# INGREDIENTS.ADD
+# PATTERN: /ingredients/add
+# TARGET: ?ingredients=add
+RewriteRule ^ingredients\/add$ index.php?ingredients=add [L]
+
+# INGREDIENTS.CREATE
+# PATTERN: /ingredients/create
+# TARGET: ?ingredients=create
+RewriteRule ^ingredients\/create$ index.php?ingredients=create [L]
+
+# INGREDIENTS.DELETE
+# PATTERN: /ingredients/delete/x
+# TARGET: ?ingredients=delete&id=x
+RewriteRule ^ingredients\/delete\/([1-9][0-9]*)$ index.php?ingredients=delete&id=$1 [L]
+
+# INGREDIENTS.EDIT.FORM
+# PATTERN: /ingredients/edit/form/x
+# TARGET: ?ingredients=editForm&id=x
+RewriteRule ^ingredients\/edit\/form\/([1-9][0-9]*)$ index.php?ingredients=editForm&id=$1 [L]
+
+# INGREDIENTS.EDIT.UPDATE
+# PATTERN: /ingredients/edit/x
+# TARGET: ?ingredients=edit&id=x
+RewriteRule ^ingredients\/edit\/([1-9][0-9]*)$ index.php?ingredients=edit&id=$1 [L]
+
 
 
 

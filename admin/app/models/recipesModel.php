@@ -1,38 +1,38 @@
-<?php
+<?php 
 
 namespace App\Models\RecipesModel;
 
 function findAll(\PDO $connexion): array
 {
     $sql = "SELECT *
-            FROM dishes
+            FROM dishes d
+            GROUP BY d.id
             ORDER BY name ASC;";
+            
     $rs = $connexion->query($sql);
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
 
-function insertOne(\PDO $connexion, array $data)
+function deleteOne(\PDO $connexion, int $id): bool
 {
-    $sql = "INSERT INTO dishes
-            SET name = :name,
-                description = :description,
-                prep_time = :prep_time,
-                portions = :portions, 
-                created_at = NOW();";
-    $rs = $connexion->prepare($sql);
-    $rs->bindValue(':name', $data['name'], \PDO::PARAM_STR);
-    $rs->bindValue(':description', $data['description'], \PDO::PARAM_STR);
-    $rs->bindValue(':prep_time', $data['prep_time'], \PDO::PARAM_STR);
-    $rs->bindValue(':portions', $data['portions'], \PDO::PARAM_STR);
-    return $rs->execute();
-}
+    try {
+        // Préparez la requête DELETE
+        $sql = "DELETE 
+                FROM dishes";
 
-// MODIFIER LA REQUETE POUR POUVOIR AVOIR ACCES  POUR SUPP KEYFOREIGN 
-function deleteOne(\PDO $connexion, int $id)
-{
-    $sql = "DELETE FROM dishes
-            WHERE id = :id;";
-    $rs = $connexion->prepare($sql);
-    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
-    return intval($rs->execute());
+        $rs = $connexion->prepare($sql);
+        $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+        $result = $rs->execute();
+
+        // Vérifiez si la suppression a réussi (nombre de lignes affectées)
+        if ($result && $rs->rowCount() > 0) {
+            return true; // Suppression réussie
+        } else {
+            return false; // Aucune recette supprimée (peut être introuvable par ID)
+        }
+    } catch (\PDOException $e) {
+        // Gérez les exceptions PDO ici (par exemple, enregistrer les erreurs)
+        echo "Erreur de suppression de la recette : " . $e->getMessage();
+        return false;
+    }
 }

@@ -65,24 +65,7 @@
     </div>
 
     <!-- Comments -->
-    <div class="p-4 border-t">
-    <h2 class="text-2xl font-bold mb-4">Commentaires</h2>
-    <!-- Comment -->
-    <div class="mb-4">
-        <div class="flex items-center mb-2">
-        <img
-            src="https://source.unsplash.com/50x50/?portrait"
-            alt="Nom de l'utilisateur"
-            class="w-10 h-10 rounded-full mr-2"
-        />
-        <span class="font-bold">Marie Durand</span>
-        </div>
-        <p class="text-gray-700">
-        J'ai adoré cette recette ! Merci pour le partage.
-        </p>
-    </div>
-    <!-- ... (autres commentaires) ... -->
-    </div>
+        <?php include '../app/views/comments/indexByRecipeId.php';?>
 </section>
 
 

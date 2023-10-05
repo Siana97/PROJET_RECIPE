@@ -1,35 +1,36 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- Recipe Card (Repeat for each recipe) -->
-    <?php foreach ($recipes as $recipe) :?>
+        <?php foreach ($recipes as $recipe) : ?>
         <article
-        class="bg-gray-800 rounded-lg overflow-hidden shadow-lg relative"
+            class="bg-white rounded-lg overflow-hidden shadow-lg relative"
         >
-        <img
+            <img
+            class="w-full h-48 object-cover"
             src="<?= $recipe['picture'] ;?>"
             alt="<?= $recipe['name'] ;?>"
-            class="w-full h-48 object-cover"
-        />
-        <div class="p-4">
-            <h5 class="text-lg font-bold mb-2">
+            />
+            <div class="p-4">
+            <h3 class="text-xl font-bold mb-2">
                 <?= $recipe['name'] ;?>
-            </h5>
+            </h3>
             <div class="flex items-center mb-2">
-            <span class="text-yellow-500 mr-1"
+                <span class="text-yellow-500 mr-1"
                 ><i class="fas fa-star"></i
-            ></span>
-            <span>
-                <?= $recipe['average_rating'] ;?>
-            </span>
+                ></span>
+                <span>
+                    <?= $recipe['average_rating'] ;?>
+                </span>
             </div>
-            <p class="text-gray-500">
+            <p class="text-gray-600">
                 <?= truncate($recipe['description'], 15); ?>
             </p>
             <a
-            href="recipes/<?= $recipe['id']; ?>/<?=slugify($recipe['name']); ?>"
-            class="text-yellow-500 hover:text-yellow-600 mt-2 inline-block"
-            >Voir la recette</a
+                href="recipes/<?= $recipe['id']; ?>/<?=slugify($recipe['name']); ?>"
+                class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white"
             >
-        </div>
+                Voir la recette
+            </a>
+            </div>
         </article>
     <?php endforeach; ?>
 </div>    

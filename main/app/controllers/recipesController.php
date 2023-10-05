@@ -3,6 +3,8 @@
 namespace App\Controllers\RecipesController;
 
 use App\Models\RecipesModel;
+use App\Models\CommentsModel;
+
 
 function indexAction(\PDO $connexion)
 {
@@ -20,6 +22,9 @@ function showAction(\PDO $connexion, int $id)
 {
     include_once '../app/models/recipesModel.php';
     $recipe = RecipesModel\findOneById($connexion, $id);
+
+    include_once '../app/models/commentsmodel.php';
+    $comments = CommentsModel\findAllByRecipeId($connexion, $id);
 
     global $title, $content;
     $title = $recipe['name'];

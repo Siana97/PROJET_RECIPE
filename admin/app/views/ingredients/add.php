@@ -1,14 +1,14 @@
 <div class="page-header">
-    <h1>AJOUT D'UNE CATÉGORIE</h1>
+    <h1>AJOUT D'UN INGREDIENT</h1>
 </div>
-<form action="categories/create" method="post">
+<form action="ingredients/create" method="post">
     <div class="form-group">
         <label for="name">Name</label>
         <input class="form-control" type="text" id="name" name="name" placeholder="Name" />
     </div>
     <div class="form-group">
-        <label for="description">Description</label>
-        <input class="form-control" type="text" id="description" name="description" placeholder="Courte description"/>
+        <label for="unit">Unit</label>
+        <input class="form-control" type="text" id="unit" name="unit" placeholder="Unit" />
     </div>
     <div>
         <input type="submit" class="btn btn-lg btn-primary" />

@@ -42,5 +42,26 @@ function deleteAction(\PDO $connexion, int $id)
     $return = CategoriesModel\deleteOne($connexion, $id);
 
     // Je me redirige vers la liste des catégories
-    header('location: ' . ROOT . 'categories');
+    header('location: ' . ADMIN_ROOT . 'categories');
+}
+
+function editFormAction(\PDO $connexion, int $id)
+{
+    // Je demande au modele de modifieer la catégorie 
+    $categorie = CategoriesModel\findOneById($connexion, $id);
+
+    global $title, $content;
+    $title = "Modifier une catégorie";
+    ob_start();
+    include '../app/views/categories/edit.php';
+    $content = ob_get_clean();
+}
+
+function editAction(\PDO $connexion, array $data = null)
+{
+    // Je demande au modele de modifier la catégorie 
+    $return = CategoriesModel\updateOne($connexion, $data);
+
+    // Je me redirige vers la liste des catégories
+    header('location: ' . ADMIN_ROOT . 'categories');
 }

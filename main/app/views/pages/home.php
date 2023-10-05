@@ -10,6 +10,7 @@
 <!-- Hero Recipe Card -->
 <?php include '../app/views/recipes/recipeRandom.php'; ?>
 
+<!-- Populaire Recipe Card -->
 <section>
     <h2 class="text-2xl font-bold mb-4">Recettes populaires</h2>
     <?php include '../app/views/recipes/recipesByRating.php'; ?>

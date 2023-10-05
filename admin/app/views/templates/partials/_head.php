@@ -21,7 +21,7 @@
 
 
 <!-- Custom styles for this template -->
-<link href="theme.css" rel="stylesheet" />
+<link href="css/theme.css" rel="stylesheet" />
 
 <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 <!--[if lt IE 9

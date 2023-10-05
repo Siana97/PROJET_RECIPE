@@ -2,16 +2,22 @@
 
 namespace App\Controllers\PagesController;
 
+use App\Models\RecipesModel;
+use App\Models\UsersModel;
+use App\Models\IngredientsModel;
+
 function homeAction(\PDO $connexion)
 {
     include_once '../app/models/recipesModel.php';
-    $recipes = \App\Models\recipesModel\findAllPopulars($connexion);
-    $recipeRandom = \App\Models\recipesModel\findOneRecipeRandom($connexion);
+    $recipes = RecipesModel\findAllPopulars($connexion);
+    $recipeRandom = RecipesModel\findOneRecipeRandom($connexion);
     
 
     include_once '../app/models/usersModel.php';
-    $topUser = \App\Models\usersModel\findOneWithMostRecipes($connexion);
+    $topUser = UsersModel\findOneWithMostRecipes($connexion);
 
+    include_once '../app/models/ingredientsModel.php';
+    $ingredients = IngredientsModel\findAll($connexion);
 
     global $title, $content;
     $title = "Popular Recipes - Popular Chief";

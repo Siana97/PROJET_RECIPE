@@ -24,9 +24,9 @@
                         <li><a href="categories">Liste des catégories</a></li>
                         <li><a href="categories/add">Ajouter une catégorie</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">GESTION DES INGREDIENTS</li>
-                        <li><a href="ingredients">Liste des ingredients</a></li>
-                        <li><a href="ingredients/add">Ajouter un ingrerdient</a></li>
+                        <li class="dropdown-header">GESTION DES INGRÉDIENTS</li>
+                        <li><a href="ingredients">Liste des ingrédients</a></li>
+                        <li><a href="ingredients/add">Ajouter un ingrédient</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header">GESTION DES USERS</li>
                         <li><a href="users">Liste des users</a></li>
