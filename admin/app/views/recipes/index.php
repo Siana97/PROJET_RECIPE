@@ -16,7 +16,10 @@
             <th>Description</th>
             <th>Portions</th>
             <th>Prep_time</th>
-            <!-- <th>Picture</th> -->
+            <th>Picture</th>
+            <th>User</th>
+            <th>Catégorie</th>
+            <th>Ingrédients</th>
             <th>Created_at</th>
             <th>Action</th>
         </tr>
@@ -29,9 +32,13 @@
                 <td><?= $recipe['description'] ?></td>
                 <td><?= $recipe['portions'] ?></td>
                 <td><?= $recipe['prep_time'] ?></td>
+                <td><?= $recipe['picture'] ?></td>
+                <td><?= $recipe['user_name'] ?></td>
+                <td><?= $recipe['category_name'] ?></td>
+                <td><?= $recipe['ingredient_names'] ?></td>
                 <td><?= $recipe['created_at'] ?></td>
                 <td>
-                    <a href="recipes/edit/<?= $recipe['id']; ?>" class="btn btn-primary">Modifier</a>
+                    <a href="recipes/edit/form/<?= $recipe['id']; ?>" class="btn btn-primary">Modifier</a>
                     <a href="recipes/delete/<?= $recipe['id']; ?>" class="btn btn-secondary">Supprimer</a>
                 </td>
             </tr>

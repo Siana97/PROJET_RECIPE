@@ -3,6 +3,9 @@
 namespace App\Controllers\RecipesController;
 
 use \App\Models\RecipesModel;
+use \App\Models\UsersModel;
+use \App\Models\CategoriesModel;
+use \App\Models\IngredientsModel;
 
 include_once '../app/models/recipesModel.php';
 
@@ -20,8 +23,17 @@ function indexAction(\PDO $connexion)
     $content = ob_get_clean();
 }
 
-function addAction()
+function addAction(\PDO $connexion)
 {
+    include_once '../app/models/usersModel.php';
+    $users = UsersModel\findAll($connexion);
+
+    include_once '../app/models/categoriesModel.php';
+    $categories = CategoriesModel\findAll($connexion);
+
+    include_once '../app/models/ingredientsModel.php';
+    $ingredients = IngredientsModel\findAll($connexion);
+
     // Je charge la vue recipes.add dans $content
     global $title, $content;
     $title = "Ajouter une recipe";
@@ -30,11 +42,10 @@ function addAction()
     $content = ob_get_clean();
 }
 
-function createAction(\PDO $connexion, array $data)
+function createAction(\PDO $connexion, array $data) 
 {
-    $recipe = RecipesModel\insertOne($connexion, $data);
-    $categories = RecipesModel\findAllCategories($connexion);
-    
+    $id = RecipesModel\insertOne($connexion, $data);
+    // Je me redirige vers la liste des recipes
     header('location: ' . ADMIN_ROOT . 'recipes');
 }
 

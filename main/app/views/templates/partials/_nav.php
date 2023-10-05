@@ -34,10 +34,12 @@
                 </svg>
               </button>
             </div>
+            <!-- BAR DE RECHERCHES -->
             <div class="hidden md:flex items-center space-x-4">
-              <form action="search" method="get">
+              <form action="recipes/search" method="post">
                 <input
                   type="text"
+                  name ="search"
                   placeholder="Rechercher une recette..."
                   class="p-2 rounded-md"
                 />

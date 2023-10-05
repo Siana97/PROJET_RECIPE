@@ -37,7 +37,7 @@ function insertOne(\PDO $connexion, array $data)
 function updateOne(\PDO $connexion, array $data)
 {
     $sql = "UPDATE ingredients
-            SET name         = :name,
+            SET name  = :name,
                 unit  = :unit
             WHERE id  = :id;";
     $rs = $connexion->prepare($sql);

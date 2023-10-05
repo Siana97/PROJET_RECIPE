@@ -5,6 +5,37 @@ RewriteEngine on
 #--------------------------------------------------
 # ROUTES
 #--------------------------------------------------
+# USERS.INDEX
+# PATTERN: /users
+# TARGET: ?users=index
+RewriteRule ^users$ index.php?users=index [L]
+
+# USERS.ADD
+# PATTERN: /users/add
+# TARGET: ?users=add
+RewriteRule ^users\/add$ index.php?users=add [L]
+
+# USERS.CREATE
+# PATTERN: /users/create
+# TARGET: ?users=create
+RewriteRule ^users\/create$ index.php?users=create [L]
+
+# USERS.DELETE
+# PATTERN: /users/delete/x
+# TARGET: ?users=delete&id=x
+RewriteRule ^users\/delete\/([1-9][0-9]*)$ index.php?users=delete&id=$1 [L]
+
+# USERS.EDIT.FORM
+# PATTERN: /users/edit/form/x
+# TARGET: ?users=editForm&id=x
+RewriteRule ^users\/edit\/form\/([1-9][0-9]*)$ index.php?users=editForm&id=$1 [L]
+
+# USERS.EDIT.UPDATE
+# PATTERN: /users/edit/x
+# TARGET: ?users=edit&id=x
+RewriteRule ^users\/edit\/([1-9][0-9]*)$ index.php?users=edit&id=$1 [L]
+
+# ROUTE DES USERS -------------
 # ROUTE DE LOGOUT
 # PATTERN: /users/logout
 # TARGET: ?users=logout
@@ -31,6 +62,17 @@ RewriteRule ^recipes\/create$ index.php?recipes=create [L]
 # PATTERN: /recipes/delete/x
 # TARGET: ?recipes=delete&id=x
 RewriteRule ^recipes\/delete\/([1-9][0-9]*)$ index.php?recipes=delete&id=$1 [L]
+
+# RECIPES.EDIT.FORM
+# PATTERN: /recipes/edit/form/x
+# TARGET: ?recipes=editForm&id=x
+RewriteRule ^recipes\/edit\/form\/([1-9][0-9]*)$ index.php?recipes=editForm&id=$1 [L]
+
+# RECIPES.EDIT.UPDATE
+# PATTERN: /recipes/edit/x
+# TARGET: ?recipes=edit&id=x
+RewriteRule ^recipes\/edit\/([1-9][0-9]*)$ index.php?recipes=edit&id=$1 [L]
+
 
 # ROUTE DES CATEGORIES -------------
 

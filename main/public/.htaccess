@@ -46,6 +46,11 @@ RewriteRule ^categories\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.ph
 # TARGET: index.php?ingredients=show&id=x
 RewriteRule ^ingredients\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?ingredients=show&id=$1 [L]
 
+# ROUTE RECHERCHE D'UNE RECETTE
+# PATTERN: /recipes/search
+# TARGET: index.php?recipes=search
+RewriteRule ^recipes\/search$ index.php?recipes=search [L]
+
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
 RewriteRule ^(.*)$ index.php [L]

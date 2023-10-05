@@ -22,9 +22,9 @@ switch ($_GET['ingredients']):
         break;
     case 'edit':
         IngredientsController\editAction($connexion, [
-            'id'          => $_GET['id'],
-            'name'        => $_POST['name'],
-            'unit' => $_POST['unit']
+            'id'     => $_GET['id'],
+            'name'   => $_POST['name'],
+            'unit'   => $_POST['unit']
         ]);
         break;
     default:

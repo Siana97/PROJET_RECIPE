@@ -18,24 +18,44 @@
         <label for="prep_time">Prep_time</label>
         <input class="form-control" type="text" id="prep_time" name="prep_time" placeholder="en minutes" />
     </div>
+    <!-- PICTURE -->
+    <!-- <div class="form-group">
+        <label for="prep_time">Picture</label>
+        <input class="form-control" type="text" id="prep_time" name="prep_time" placeholder="en minutes" />
+    </div> -->
+    
+    <!-- USER -->
+    <div class="form-group">
+        <label for="user">User</label>
+        <select class="form-control" id="user" name="user">
+            <?php foreach($users as $user) : ?>
+            <option value=<?= $user['id'];?>>
+            <?= $user['name'];?>
+            </option>
+            <?php endforeach ;?> 
+        </select>
+    </div>
+
+    <!-- CATEGORIE -->
     <div class="form-group">
         <label for="categorie">Catégorie</label>
         <select class="form-control" id="categorie" name="categorie">
-            <?php
-            // Parcourir les catégories et les afficher comme options
-            foreach ($categories as $categorie) 
-            :?>
-            <option value="<?= $categorie['id'];?>"></option>
-            <?php endforeach; ?>
+            <?php foreach($categories as $category) : ?>
+            <option value=<?= $category['id'];?>>
+            <?= $category['name'];?>
+            </option>
+            <?php endforeach ;?> 
     </select>
     </div>
-    <div class="form-group">
-        <label for="prep_time">User</label>
-        <input class="form-control" type="text" id="user" name="user" placeholder="" />
-    </div>
-    <div class="form-group">
-        <label for="ingredients">Ingrédients</label>
-        <input class="form-control" type="text" id="ingredient" name="ingredient"/>
+
+    <!-- INGREDIENTS-->
+    <div>
+        <?php foreach($ingredients as $ingredient) : ?>
+        <input type="checkbox" id="<?= $ingredient['id'];?>" name="categories"/>
+        <label for="<?= $ingredient['name'];?>">
+            <?= $ingredient['name'];?>
+        </label>
+        <?php endforeach ;?> 
     </div>
     <div>
         <input type="submit" class="btn btn-lg btn-primary" />

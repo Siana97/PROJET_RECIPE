@@ -5,10 +5,10 @@ namespace App\Controllers\RecipesController;
 use App\Models\RecipesModel;
 use App\Models\CommentsModel;
 
+include_once '../app/models/recipesModel.php';
 
 function indexAction(\PDO $connexion)
 {
-    include_once '../app/models/recipesModel.php';
     $recipes = RecipesModel\findAll($connexion);
 
     global $title, $content;
@@ -20,7 +20,6 @@ function indexAction(\PDO $connexion)
 
 function showAction(\PDO $connexion, int $id)
 {
-    include_once '../app/models/recipesModel.php';
     $recipe = RecipesModel\findOneById($connexion, $id);
 
     include_once '../app/models/commentsmodel.php';
@@ -30,5 +29,16 @@ function showAction(\PDO $connexion, int $id)
     $title = $recipe['name'];
     ob_start();
     include '../app/views/recipes/show.php';
+    $content = ob_get_clean();
+}
+
+function searchAction(\PDO $connexion, string $search)
+{
+    $recipes = RecipesModel\findAllBySearch($connexion, $search);
+
+    global $title, $content;
+    $title = $search;
+    ob_start();
+    include '../app/views/recipes/search.php';
     $content = ob_get_clean();
 }

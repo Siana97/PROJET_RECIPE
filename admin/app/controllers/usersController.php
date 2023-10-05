@@ -4,6 +4,20 @@ namespace App\Controllers\UsersController;
 
 use \App\Models\UsersModel;
 
+include_once '../app/models/usersModel.php';
+
+function indexAction(\PDO $connexion)
+{
+    // Je mets le findAll() dans $users
+    $users = UsersModel\findAll($connexion);
+
+    // Je charge la vue users.index dans $content
+    global $title, $content;
+    $title = "Liste des users";
+    ob_start();
+    include '../app/views/users/index.php';
+    $content = ob_get_clean();
+}
 
 function dashboardAction(\PDO $connexion)
 {
