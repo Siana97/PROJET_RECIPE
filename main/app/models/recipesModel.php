@@ -136,16 +136,27 @@ function findOneById(\PDO $connexion, int $id): array
 
 function findAllBySearch(\PDO $connexion, string $search)
 {
-        $sql = "SELECT DISTINCT d.*
-                FROM dishes d
-                LEFT JOIN dishes_has_ingredients di ON d.id = di.dish_id
-                LEFT JOIN ingredients i ON di.ingredient_id = i.id
-                WHERE d.name LIKE :search
-                OR d.description LIKE :search
-                OR i.name LIKE :search";
-        
-      $rs = $connexion->prepare($sql);
-      $rs->bindValue(':search', '%'.$search.'%', \PDO::PARAM_STR);
-      $rs->execute();
-      return $rs->fetchAll(\PDO::FETCH_ASSOC);
+    $words = explode(' ', trim($search));
+    $sql = "SELECT DISTINCT d.*
+            FROM dishes d
+            LEFT JOIN dishes_has_ingredients di ON d.id = di.dish_id
+            LEFT JOIN ingredients i ON di.ingredient_id = i.id
+            WHERE 1 = 0";
+
+    for ($i = 0; $i < count($words); $i++) {
+        $sql .= " OR d.name LIKE :word$i
+                  OR d.description LIKE :word$i
+                  OR i.name LIKE :word$i";
+    }
+
+    $sql .= ";";
+
+    $rs = $connexion->prepare($sql);
+
+    for ($i = 0; $i < count($words); $i++) {
+        $rs->bindValue(":word$i", '%' . $words[$i] . '%', \PDO::PARAM_STR);
+    }
+
+    $rs->execute();
+    return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
